@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group 'com.hogwarts'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.7.0")
+    testRuntimeOnly("org.junit.platform:junit-platform-runner:1.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.0")
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+test {
+    useJUnitPlatform()
+}
